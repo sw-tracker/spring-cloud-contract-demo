@@ -11,6 +11,10 @@
 
     <properties>
         <java.version>11</java.version>
+        <cloud-contract.version>2.2.6.RELEASE</cloud-contract.version>
+        <cloud-contract-maven.version>2.2.6.RELEASE</cloud-contract-maven.version>
+        <cloud-contract-wiremock.version>2.2.6.RELEASE</cloud-contract-wiremock.version>
+        <cloud-contract-stub-runner.version>2.2.6.RELEASE</cloud-contract-stub-runner.version>
     </properties>
 
     <parent>
@@ -20,7 +24,7 @@
     </parent>
 
     <modules>
-        <module>producer-demo</module>
-        <module>consumer-demo</module>
+        <module>producer</module>
+        <module>consumer</module>
     </modules>
 </project>

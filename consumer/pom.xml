@@ -8,7 +8,7 @@
 		<version>0.0.1</version>
 	</parent>
 
-	<artifactId>consumer-demo</artifactId>
+	<artifactId>consumer</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -19,6 +19,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-contract-wiremock</artifactId>
+			<version>${cloud-contract-wiremock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-contract-stub-runner</artifactId>
+			<version>${cloud-contract-stub-runner.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

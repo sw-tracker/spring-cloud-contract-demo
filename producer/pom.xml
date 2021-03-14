@@ -8,7 +8,7 @@
 		<version>0.0.1</version>
 	</parent>
 
-	<artifactId>producer-demo</artifactId>
+	<artifactId>producer</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -21,13 +21,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<version>${cloud-contract.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<version>${cloud-contract-maven.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<baseClassForTests>
+						com.springboot.cloud.contracts.BaseTestClass
+					</baseClassForTests>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<failIfNoTests>true</failIfNoTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
