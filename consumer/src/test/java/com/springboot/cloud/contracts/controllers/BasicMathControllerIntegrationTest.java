@@ -1,6 +1,7 @@
-package com.springboot.cloud.contracts;
+package com.springboot.cloud.contracts.controllers;
 
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,28 @@ public class BasicMathControllerIntegrationTest {
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(content().string("Even"));
+  }
+
+  @Test
+  public void given_WhenCallingSequence_ThenOk()
+      throws Exception {
+
+    mockMvc.perform(MockMvcRequestBuilders.get("/sequence/ok")
+        .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andExpect(content().string("ok"));
+  }
+
+  // this would be invalid behaviour
+  // only added to demonstrate that the order of the calls matter
+  @Ignore
+  @Test
+  public void given_WhenCallingSequence_ThenNOk()
+      throws Exception {
+
+    mockMvc.perform(MockMvcRequestBuilders.get("/sequence/nok")
+        .contentType(MediaType.APPLICATION_JSON))
+        .andExpect(status().isBadRequest())
+        .andExpect(content().string("nok"));
   }
 }

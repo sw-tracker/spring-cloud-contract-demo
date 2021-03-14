@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/validate")
-public class EvenOddController {
+@RequestMapping("/sequence")
+public class SequenceController {
 
-  @GetMapping("/prime-number")
-  public ResponseEntity<String> isNumberPrime(@RequestParam("number") Integer number) {
-    return ResponseEntity.status(200).body(number % 2 == 0 ? "Even" : "Odd");
+  @GetMapping
+  public ResponseEntity<String> sequence(@RequestParam("order") String order) {
+    return ResponseEntity.status(200).body(order);
   }
 }

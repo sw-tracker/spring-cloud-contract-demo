@@ -1,6 +1,7 @@
 package com.springboot.cloud.contracts;
 
 import com.springboot.cloud.contracts.controllers.EvenOddController;
+import com.springboot.cloud.contracts.controllers.SequenceController;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -21,9 +22,12 @@ public class BaseTestClass {
   @Autowired
   private EvenOddController evenOddController;
 
+  @Autowired
+  private SequenceController sequenceController;
+
   @Before
   public void setup() {
-    StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(evenOddController);
+    StandaloneMockMvcBuilder standaloneMockMvcBuilder = MockMvcBuilders.standaloneSetup(evenOddController, sequenceController);
     RestAssuredMockMvc.standaloneSetup(standaloneMockMvcBuilder);
   }
 }
